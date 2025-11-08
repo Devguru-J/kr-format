@@ -1,7 +1,7 @@
 {
   "name": "kr-format",
-  "version": "1.0.0",
-  "description": "한국 개발자를 위한 필수 포맷팅 유틸리티 - Essential formatting utilities for Korean developers",
+  "version": "1.0.1",
+  "description": "한국 개발자를 위한 필수 포맷팅 유틸리티 - Essential formatting utilities for Korean developers | Project tango down by Devguru-J",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
