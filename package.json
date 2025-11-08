@@ -26,16 +26,16 @@
     "utility",
     "util"
   ],
-  "author": "",
+  "author": "Devguru-J",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/kr-format.git"
+    "url": "https://github.com/Devguru-J/kr-format.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/kr-format/issues"
+    "url": "https://github.com/Devguru-J/kr-format/issues"
   },
-  "homepage": "https://github.com/yourusername/kr-format#readme",
+  "homepage": "https://github.com/Devguru-J/kr-format#readme",
   "engines": {
     "node": ">=12.0.0"
   },
