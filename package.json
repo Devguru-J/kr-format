@@ -1,0 +1,47 @@
+{
+  "name": "kr-format",
+  "version": "1.0.0",
+  "description": "한국 개발자를 위한 필수 포맷팅 유틸리티 - Essential formatting utilities for Korean developers",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "korean",
+    "korea",
+    "format",
+    "formatting",
+    "phone",
+    "mask",
+    "currency",
+    "rrn",
+    "한국",
+    "전화번호",
+    "마스킹",
+    "포맷팅",
+    "주민등록번호",
+    "통화",
+    "left-pad",
+    "utility",
+    "util"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/kr-format.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/kr-format/issues"
+  },
+  "homepage": "https://github.com/yourusername/kr-format#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md"
+  ]
+}

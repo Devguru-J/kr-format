@@ -1,0 +1,6 @@
+test.js
+.git
+.gitignore
+coverage/
+*.log
+.DS_Store
