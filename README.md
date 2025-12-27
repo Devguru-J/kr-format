@@ -6,16 +6,77 @@
 
 ## 설치
 
+### npm
 ```bash
 npm install kr-format
 ```
 
+### yarn
+```bash
+yarn add kr-format
+```
+
+### pnpm
+```bash
+pnpm add kr-format
+```
+
+### bun
+```bash
+bun add kr-format
+```
+
+### deno
+```typescript
+import { pad, mask, format } from "npm:kr-format";
+```
+
 ## 사용법
 
+### ES Modules (Vite, React, Vue, 최신 번들러)
 ```javascript
 import { pad, mask, format } from 'kr-format';
-// 또는
+```
+
+### CommonJS (Node.js, 레거시 프로젝트)
+```javascript
 const { pad, mask, format } = require('kr-format');
+```
+
+### Vite/React 프로젝트에서 사용
+```jsx
+import { pad, mask, format } from 'kr-format';
+
+function App() {
+  const phoneNumber = '01012345678';
+
+  return (
+    <div>
+      <p>전화번호: {pad.phone(phoneNumber)}</p>
+      <p>마스킹: {mask.phone(phoneNumber)}</p>
+      <p>가격: {format.currency(50000)}</p>
+    </div>
+  );
+}
+```
+
+### Deno에서 사용
+```typescript
+import { pad, mask, format } from "npm:kr-format";
+
+const phoneNumber = pad.phone("01012345678");
+console.log(phoneNumber); // 010-1234-5678
+
+const price = format.currency(50000);
+console.log(price); // 50,000원
+```
+
+### Bun에서 사용
+```typescript
+import { pad, mask, format } from "kr-format";
+
+const email = mask.email("test@example.com");
+console.log(email); // te**@example.com
 ```
 
 ## API
@@ -117,6 +178,23 @@ const maskedEmail: string = mask.email('test@example.com');
 const price: string = format.currency(10000);
 ```
 
+## 호환성
+
+### 번들러 & 런타임
+- ✅ **ES Modules** - Vite, Webpack 5+, Rollup, esbuild
+- ✅ **CommonJS** - Node.js, Webpack 4, 레거시 프로젝트
+- ✅ **TypeScript** - 타입 정의 포함
+- ✅ **React/Vue/Svelte** - 모든 모던 프레임워크
+- ✅ **Node.js** - 12.0.0 이상
+- ✅ **Deno** - npm 스펙을 통한 지원
+- ✅ **Bun** - 네이티브 지원
+
+### 패키지 매니저
+- ✅ **npm** - Node Package Manager
+- ✅ **yarn** - Fast, reliable package manager
+- ✅ **pnpm** - Fast, disk space efficient
+- ✅ **bun** - Ultra-fast JavaScript runtime & package manager
+
 ## 실사용 예제
 
 ### 고객 정보 표시
@@ -164,6 +242,24 @@ console.log(`
 ```bash
 npm test
 ```
+
+## 변경 이력 (Changelog)
+
+### v1.0.2 (2025-12-27)
+- ✨ **Vite 호환성 추가**: ES Module 지원으로 Vite, Webpack 5+, Rollup 등 모던 번들러와 완벽 호환
+- 📦 **Dual Package 지원**: CommonJS와 ES Module 동시 지원으로 레거시 및 모던 프로젝트 모두 사용 가능
+- 🎯 **package.json exports 필드 추가**: 번들러가 자동으로 적절한 모듈 형식 선택
+- 📝 **README 개선**:
+  - 모든 주요 패키지 매니저 설치 방법 추가 (npm, yarn, pnpm, bun, deno)
+  - Vite/React 사용 예제 추가
+  - 호환성 정보 명시
+- 🔧 **index.esm.js 추가**: ES Module 전용 진입점
+
+### v1.0.1
+- 초기 안정화 버전
+
+### v1.0.0
+- 최초 릴리스
 
 ## 라이선스
 
