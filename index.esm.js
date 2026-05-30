@@ -16,7 +16,11 @@ export const pad = {
       ? '0' + cleaned
       : cleaned;
 
-    // 010-xxxx-xxxx (11자리)
+    // 0507-xxxx-xxxx 평생번호 (12자리, 050으로 시작)
+    if (normalized.length === 12 && normalized.startsWith('050')) {
+      return normalized.replace(/(\d{4})(\d{4})(\d{4})/, '$1-$2-$3');
+    }
+    // 010/070-xxxx-xxxx (11자리)
     if (normalized.length === 11) {
       return normalized.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
     }
@@ -30,6 +34,10 @@ export const pad = {
     // 0xx-xxx-xxxx 또는 0xx-xxxx-xxxx (10-11자리)
     if (normalized.length === 10) {
       return normalized.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+    }
+    // 대표번호 15xx/16xx/18xx-xxxx (8자리, 1로 시작)
+    if (normalized.length === 8 && normalized.startsWith('1')) {
+      return normalized.replace(/(\d{4})(\d{4})/, '$1-$2');
     }
 
     return normalized;
@@ -61,35 +69,33 @@ export const pad = {
 
 export const mask = {
   /**
-   * 주민등록번호를 마스킹 처리
+   * 주민등록번호를 마스킹 처리 (한국 표준: 생년월일 + 성별자리만 노출)
    * @param {string} rrn - 주민등록번호
-   * @param {number} visibleDigits - 뒷자리에서 보여줄 숫자 개수 (기본: 0)
-   * @returns {string} 마스킹된 주민등록번호
+   * @returns {string} 마스킹된 주민등록번호 (예: 900101-1******)
    */
-  rrn: (rrn, visibleDigits = 0) => {
+  rrn: (rrn) => {
     const cleaned = String(rrn).replace(/\D/g, '');
     if (cleaned.length === 13) {
       const front = cleaned.substring(0, 6);
-      const back = cleaned.substring(6);
-      const masked = visibleDigits > 0
-        ? '*'.repeat(7 - visibleDigits) + back.substring(7 - visibleDigits)
-        : '*'.repeat(7);
-      return `${front}-${masked}`;
+      const gender = cleaned.substring(6, 7);
+      return `${front}-${gender}******`;
     }
     return rrn;
   },
 
   /**
-   * 전화번호를 마스킹 처리
+   * 전화번호를 마스킹 처리 (가운데 자리 앞쪽부터 maskLength 자리)
    * @param {string|number} phone - 전화번호
    * @param {number} maskLength - 마스킹할 자릿수 (기본: 4)
-   * @returns {string} 마스킹된 전화번호
+   * @returns {string} 마스킹된 전화번호 (예: 010-****-5678)
    */
   phone: (phone, maskLength = 4) => {
     const formatted = pad.phone(phone);
     const parts = formatted.split('-');
     if (parts.length === 3) {
-      parts[1] = '*'.repeat(parts[1].length);
+      const mid = parts[1];
+      const n = Math.min(maskLength, mid.length);
+      parts[1] = '*'.repeat(n) + mid.slice(n);
       return parts.join('-');
     }
     return formatted;

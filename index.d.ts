@@ -6,7 +6,7 @@ export interface Pad {
   /**
    * 전화번호를 하이픈으로 구분된 형식으로 변환
    * @param phone - 전화번호 (숫자만)
-   * @returns 포맷된 전화번호 (예: 010-1234-5678)
+   * @returns 포맷된 전화번호 (예: 010-1234-5678, 0507-1234-5678, 1588-1234)
    */
   phone(phone: string | number): string;
 
@@ -27,15 +27,14 @@ export interface Pad {
 
 export interface Mask {
   /**
-   * 주민등록번호를 마스킹 처리
+   * 주민등록번호를 마스킹 처리 (한국 표준: 생년월일 + 성별자리만 노출)
    * @param rrn - 주민등록번호
-   * @param visibleDigits - 뒷자리에서 보여줄 숫자 개수 (기본: 0)
-   * @returns 마스킹된 주민등록번호 (예: 900101-*******)
+   * @returns 마스킹된 주민등록번호 (예: 900101-1******)
    */
-  rrn(rrn: string, visibleDigits?: number): string;
+  rrn(rrn: string): string;
 
   /**
-   * 전화번호를 마스킹 처리
+   * 전화번호를 마스킹 처리 (가운데 자리 앞쪽부터 maskLength 자리)
    * @param phone - 전화번호
    * @param maskLength - 마스킹할 자릿수 (기본: 4)
    * @returns 마스킹된 전화번호 (예: 010-****-5678)
