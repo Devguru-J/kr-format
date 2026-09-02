@@ -1,7 +1,7 @@
 {
   "name": "kr-format",
-  "version": "1.1.0",
-  "description": "한국 개발자를 위한 필수 포맷팅 유틸리티 - Essential formatting utilities for Korean developers | Project tango down by Devguru-J",
+  "version": "1.2.0",
+  "description": "한국 개발자를 위한 필수 포맷팅·마스킹·검증 유틸리티 - Essential formatting, masking and validation utilities for Korean developers | Project tango down by Devguru-J",
   "main": "index.js",
   "module": "index.esm.js",
   "types": "index.d.ts",
@@ -13,7 +13,9 @@
     }
   },
   "scripts": {
-    "test": "node test.js"
+    "build": "node scripts/build-esm.js",
+    "test": "node test.js",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "korean",
@@ -35,7 +37,16 @@
     "util",
     "vite",
     "esm",
-    "es-modules"
+    "es-modules",
+    "validate",
+    "validation",
+    "josa",
+    "조사",
+    "상대시간",
+    "유효성검사",
+    "사업자등록번호",
+    "계좌번호",
+    "luhn"
   ],
   "author": "Devguru-J",
   "license": "MIT",
@@ -54,6 +65,7 @@
     "index.js",
     "index.esm.js",
     "index.d.ts",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ]
 }
