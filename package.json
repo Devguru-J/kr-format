@@ -1,6 +1,6 @@
 {
   "name": "kr-format",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "한국 개발자를 위한 필수 포맷팅·마스킹·검증 유틸리티 - Essential formatting, masking and validation utilities for Korean developers | Project tango down by Devguru-J",
   "main": "index.js",
   "module": "index.esm.js",
@@ -10,7 +10,8 @@
       "import": "./index.esm.js",
       "require": "./index.js",
       "types": "./index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "node scripts/build-esm.js",
@@ -52,7 +53,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Devguru-J/kr-format.git"
+    "url": "git+https://github.com/Devguru-J/kr-format.git"
   },
   "bugs": {
     "url": "https://github.com/Devguru-J/kr-format/issues"

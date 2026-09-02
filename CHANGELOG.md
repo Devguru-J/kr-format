@@ -2,6 +2,12 @@
 
 이 프로젝트는 [Semantic Versioning](https://semver.org/lang/ko/)을 따릅니다.
 
+## [1.2.1] - 2026-09-02
+
+### 수정
+- `exports`에 `./package.json` 경로 추가 — 버전 확인이나 번들러 플러그인이 `kr-format/package.json`을 읽을 때 `ERR_PACKAGE_PATH_NOT_EXPORTED`로 막히던 문제
+- `repository.url`을 `git+https://` 형식으로 정규화 (npm publish 경고 해소)
+
 ## [1.2.0] - 2026-09-02
 
 ### 추가

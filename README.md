@@ -489,6 +489,10 @@ npm run build   # index.js -> index.esm.js 재생성
 
 ## 변경 이력 (Changelog)
 
+### v1.2.1 (2026-09-02)
+- 🔧 `exports`에 `./package.json` 추가 — `kr-format/package.json` 접근이 막히던 문제 수정
+- 🔧 `repository.url` 정규화 (`git+https://`)
+
 ### v1.2.0 (2026-09-02)
 - ✨ **`validate` 네임스페이스 추가**: 전화번호·사업자등록번호(체크섬)·주민등록번호·카드번호(Luhn)·이메일·우편번호 검증
 - ✨ **`josa` 추가**: 앞말 받침에 따라 `을/를`, `이/가`, `으로/로` 등 10쌍의 조사를 자동 결합 (한글·숫자·영문 지원)
